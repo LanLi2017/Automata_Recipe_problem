@@ -1,0 +1,205 @@
+[
+  {
+    "op": "core/column-split",
+    "description": "Split column Cname by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Cname",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "/",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Cname 1 using expression value.toTitlecase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Cname 1",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Cname 1 using expression value.trim()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Cname 1",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Cname at index 1 based on column Cname 1 using expression grel:if(isNonBlank(cells[\"Cname 2\"].value),value+\"/\"+cells[\"Cname 2\"].value,value)",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Cname",
+    "columnInsertIndex": 1,
+    "baseColumnName": "Cname 1",
+    "expression": "grel:if(isNonBlank(cells[\"Cname 2\"].value),value+\"/\"+cells[\"Cname 2\"].value,value)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Cname 1",
+    "columnName": "Cname 1"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Cname 2",
+    "columnName": "Cname 2"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column FoundedDate using expression value.trim()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "FoundedDate",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column FoundedDate using expression value.toDate()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "FoundedDate",
+    "expression": "value.toDate()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column Headquarters by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Headquarters",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ",",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Headquarters 1 using expression value.trim()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Headquarters 1",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Headquarters 1 using expression value.toTitlecase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Headquarters 1",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Headquarters 2 using expression value.toTitlecase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Headquarters 2",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Headquarters 3 using expression value.toTitlecase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Headquarters 3",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Headquarters 4 using expression value.toTitlecase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Headquarters 4",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Headquarters at index 3 based on column Headquarters 1 using expression grel:if(isNonBlank(cells[\"Headquarters 4\"].value),value+\",\"+cells[\"Headquarters 2\"].value+\",\"+cells[\"Headquarters 3\"].value+\",\"+cells[\"Headquarters 4\"].value,value+\",\"+cells[\"Headquarters 2\"].value+\",\"+cells[\"Headquarters 3\"].value)",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Headquarters",
+    "columnInsertIndex": 3,
+    "baseColumnName": "Headquarters 1",
+    "expression": "grel:if(isNonBlank(cells[\"Headquarters 4\"].value),value+\",\"+cells[\"Headquarters 2\"].value+\",\"+cells[\"Headquarters 3\"].value+\",\"+cells[\"Headquarters 4\"].value,value+\",\"+cells[\"Headquarters 2\"].value+\",\"+cells[\"Headquarters 3\"].value)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Headquarters 1",
+    "columnName": "Headquarters 1"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Headquarters 2",
+    "columnName": "Headquarters 2"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Headquarters 3",
+    "columnName": "Headquarters 3"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Headquarters 4",
+    "columnName": "Headquarters 4"
+  }
+]

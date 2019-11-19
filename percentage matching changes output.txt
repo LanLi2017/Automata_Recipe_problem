@@ -1,0 +1,2 @@
+Before the cleaning, the percentage of inclusion dependency --> {('Cname',): 1.0, ('Mname', 'Director'): 1.0}
+After the cleaning, the percentage of inclusion dependency --> {('Cname',): 1.0, ('Mname', 'Director'): 0.0}

@@ -1,0 +1,243 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Mname using expression value.toTitlecase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Mname",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column Mname by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Mname",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ";",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Mname 2 using expression value.toUppercase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Mname 2",
+    "expression": "value.toUppercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Mname 3 using expression value.toTitlecase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Mname 3",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Mname_1 at index 1 based on column Mname 1 using expression grel:if(isNonBlank(cells[\"Mname 2\"].value), value+\";\"+cells[\"Mname 2\"].value,value)",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Mname_1",
+    "columnInsertIndex": 1,
+    "baseColumnName": "Mname 1",
+    "expression": "grel:if(isNonBlank(cells[\"Mname 2\"].value), value+\";\"+cells[\"Mname 2\"].value,value)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Mname at index 2 based on column Mname_1 using expression grel:if(isNonBlank(cells[\"Mname 3\"].value),value+\";\"+cells[\"Mname 3\"].value,value)",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Mname",
+    "columnInsertIndex": 2,
+    "baseColumnName": "Mname_1",
+    "expression": "grel:if(isNonBlank(cells[\"Mname 3\"].value),value+\";\"+cells[\"Mname 3\"].value,value)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Mname 1",
+    "columnName": "Mname 1"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Mname_1",
+    "columnName": "Mname_1"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Mname 2",
+    "columnName": "Mname 2"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Mname 3",
+    "columnName": "Mname 3"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column Mname by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Mname",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ",",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Mname 2 using expression value.toTitlecase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Mname 2",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Mname at index 1 based on column Mname 1 using expression grel:if(isNonBlank(cells[\"Mname 2\"].value),value+\",\"+cells[\"Mname 2\"].value,value)",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Mname",
+    "columnInsertIndex": 1,
+    "baseColumnName": "Mname 1",
+    "expression": "grel:if(isNonBlank(cells[\"Mname 2\"].value),value+\",\"+cells[\"Mname 2\"].value,value)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Mname 1",
+    "columnName": "Mname 1"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Mname 2",
+    "columnName": "Mname 2"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Director using expression value.toTitlecase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Director",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column Rating by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Rating",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "(",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Rating 1 using expression value.trim()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Rating 1",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Rating 2 using expression value.toLowercase()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Rating 2",
+    "expression": "value.toLowercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Rating at index 3 based on column Rating 1 using expression grel:if(isNonBlank(cells[\"Rating 2\"].value),value+\"(\"+cells[\"Rating 2\"].value,value)",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Rating",
+    "columnInsertIndex": 3,
+    "baseColumnName": "Rating 1",
+    "expression": "grel:if(isNonBlank(cells[\"Rating 2\"].value),value+\"(\"+cells[\"Rating 2\"].value,value)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Rating 1",
+    "columnName": "Rating 1"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Rating 2",
+    "columnName": "Rating 2"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Tomatometer using expression value.toNumber()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Tomatometer",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]
